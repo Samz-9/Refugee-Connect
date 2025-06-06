@@ -40,7 +40,8 @@ const nextConfig = {
             font-src 'self' https://fonts.gstatic.com;
             object-src 'none';
             frame-ancestors 'none';
-          `.replace(/\n/g, ' '),
+          `.replace(/\s{2,}/g, ' ').trim(),
+
         },
         {
           key: "X-Content-Type-Options",
