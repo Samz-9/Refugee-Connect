@@ -21,8 +21,9 @@ const About = () => {
                             With the support of local communities, NGOs, and job networks, we aim to give every climate refugee a fresh start.
                         </p>
                         <p>
-                            Whether you're looking for help or want to offer it — we're here to build a more resilient, compassionate world.
+                            {`Whether you're looking for help or want to offer it — we're here to build a more resilient, compassionate world.`}
                         </p>
+
                     </div>
                 </div>
 
@@ -34,11 +35,11 @@ const About = () => {
                         <li>Designed for accessibility and safety</li>
                         <li>Powered by compassion and data</li>
                     </ul>
-                <div className="mt-12 text-center">
-                    <a href="/register" className="hover:cursor-pointer hover:bg-[#3b5731] hover:text-white rounded-lg border-[1px] px-6 py-2 border-[#3b5731] font-semibold text-[#2f4627] first:transition">
-                        Get Yourself Registered
-                    </a>
-                </div>
+                    <div className="mt-12 text-center">
+                        <a href="/register" className="hover:cursor-pointer hover:bg-[#3b5731] hover:text-white rounded-lg border-[1px] px-6 py-2 border-[#3b5731] font-semibold text-[#2f4627] first:transition">
+                            Get Yourself Registered
+                        </a>
+                    </div>
                 </div>
             </div>
             <Footer></Footer>

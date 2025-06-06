@@ -38,7 +38,7 @@ const Login = () => {
             <div className="p-5 text-2xl underline font-serif text-[#2f4627] text-center font-bold">Login/SignUp To Get Your Details.</div>
             <div className='flex items-center justify-center py-10 gap-12'>
 
-                <img className='w-[25%] rounded-lg' src='.\loginlogo.jpg'></img>
+                <img className='w-[25%] rounded-lg' alt='loginlogo' src='.\loginlogo.jpg'></img>
                 <div className='border-l-2 p-10'>
                     <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">Username</label>
                     <input type="text" id="username" value={username}

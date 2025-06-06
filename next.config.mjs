@@ -34,7 +34,7 @@ const nextConfig = {
           value: `
             default-src 'self';
             script-src ${scriptSrc};
-            connect-src 'self' https://eonet.gsfc.nasa.gov https://www.gdacs.org https://www.themuse.com https://nominatim.openstreetmap.org;
+            connect-src 'self' https://eonet.gsfc.nasa.gov https://www.themuse.com https://nominatim.openstreetmap.org;
             img-src 'self' https: data:;
             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
             font-src 'self' https://fonts.gstatic.com;
