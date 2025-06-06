@@ -21,7 +21,7 @@ const About = () => {
                             With the support of local communities, NGOs, and job networks, we aim to give every climate refugee a fresh start.
                         </p>
                         <p>
-                            {`Whether you're looking for help or want to offer it — we're here to build a more resilient, compassionate world.`}
+                            Whether you&apos;re looking for help or want to offer it — we&apos;re here to build a more resilient, compassionate world.
                         </p>
 
                     </div>
