@@ -49,7 +49,7 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)} id="password" name="password" className="w-full px-4 py-2 border border-gray-300 mb-5  rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2f4627]" required />
                     <button onClick={handleLogin} className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Login</button>
                     <p className="text-center text-sm text-gray-600 mb-2">
-                        Don't have an account?
+                        Don&apos;t have an account?
                         <a href="/register" className="text-blue-600 hover:underline"> Register here</a>
                     </p>
                 </div>
