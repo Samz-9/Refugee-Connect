@@ -20,10 +20,10 @@ const nextConfig = {
  async headers() {
   const isDev = process.env.NODE_ENV === 'development';
   const scriptSrc = [
-    "'self'",
-    isDev ? "'unsafe-inline'" : null,
-    isDev ? "'unsafe-eval'" : null,
-  ].filter(Boolean).join(' ');
+  "'self'",
+  "'unsafe-inline'",
+].join(' ');
+
 
   return [
     {
