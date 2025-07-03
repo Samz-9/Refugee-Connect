@@ -8,9 +8,9 @@ const Footer = () => {
         <ul className="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-6 text-sm">
           <li><a href="/tos" className="hover:underline">Terms of Service</a></li>
           <li><a href="/gtc" className="hover:underline">General Terms and Conditions</a></li>
-          <li><a href="/privacy" className="hover:underline">Privacy Policy</a></li>
-          <li><a href="/cookies" className="hover:underline">Cookie Policy</a></li>
-          <li className='md:hidden flex flex-row justify-between'>
+          <li className='hidden md:block'><a href="/privacy" className="hover:underline">Privacy Policy</a></li>
+          <li className='hidden md:block'><a href="/cookies" className="hover:underline">Cookie Policy</a></li>
+          <li className='md:hidden flex flex-row gap-4 justify-between'>
             <a href="/privacy" className="hover:underline">Privacy Policy</a>
             <a href="/cookies" className="hover:underline">Cookie Policy</a>
           </li>
