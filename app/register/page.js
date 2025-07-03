@@ -235,7 +235,7 @@ export default function Register() {
     <div className="relative">
       {showOverlay && (
         <div className="fixed inset-0 backdrop-blur-md bg-black/30 z-50 flex items-center justify-center">
-          <div className='border-2 bg-white w-[30%] rounded-2xl p-10'>
+          <div className='border-2 bg-white w-[80vw] md:w-[30%] rounded-2xl p-10'>
 
             <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">Username</label>
             <input type="text" id="username" onChange={(e) => {

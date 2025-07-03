@@ -12,7 +12,7 @@ export default function Alerts() {
       const data = await res.json();
 
       if (data.events) {
-        setEvents(data.events); 
+        setEvents(data.events);
       }
     } catch (e) {
       console.error('Failed to fetch events:', e);
@@ -29,7 +29,7 @@ export default function Alerts() {
 
 
   const marqueeStyle = {
-    height : '78vh',
+    height: '78vh',
     borderRadius: '10px',
     overflow: 'hidden',
     position: 'relative',
@@ -45,9 +45,15 @@ export default function Alerts() {
     <div>
       <div className='py-2 text-center font-semibold font-serif text-lg'>Latest Events (2025 only)</div>
       {loading ? (
-        <p className='text-center'>Loading events...</p>
+        <div className="h-full flex flex-col gap-6 justify-center items-center overflow-hidden">
+          <p className="text-center animate-pulse">Loading events...</p>
+          <div className="w-14 h-14 border-8 border-solid border-[rgba(76,175,80,0.2)] border-t-[#4caf50] rounded-full animate-spin"></div>
+        </div>
+
       ) : events.length === 0 ? (
-        <p>No events for 2025 found.</p>
+        <div className="h-full flex flex-col gap-6 justify-center items-center overflow-hidden">
+          <p className="text-center animate-pulse">No events for 2025 found.</p>
+        </div>
       ) : (
         <div style={marqueeStyle}>
           <div style={scrollContentStyle}>
@@ -65,7 +71,9 @@ export default function Alerts() {
                     margin: '6px 10px',
                     padding: '10px',
                     borderBottom: '1px solid #ddd',
-                    background: 'white',
+                    borderLeft: '4px solid red',
+                    background: 'rgba(255, 255, 255, 0.6)',
+
                   }}
                 >
                   <strong>{event.title}</strong>

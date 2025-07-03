@@ -17,21 +17,24 @@ const nextConfig = {
     return config;
   },
 
- async headers() {
-  const isDev = process.env.NODE_ENV === 'development';
-  const scriptSrc = [
-  "'self'",
-  "'unsafe-inline'",
-].join(' ');
+  async headers() {
+    const isDev = process.env.NODE_ENV === 'development';
+    const scriptSrc = [
+      "'self'",
+      "'unsafe-inline'",
+      isDev ? "'unsafe-eval'" : null,
+    ]
+      .filter(Boolean)
+      .join(' ');
 
 
-  return [
-    {
-      source: "/(.*)",
-      headers: [
-        {
-          key: "Content-Security-Policy",
-          value: `
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: `
             default-src 'self';
             script-src ${scriptSrc};
             connect-src 'self' https://eonet.gsfc.nasa.gov https://www.themuse.com https://nominatim.openstreetmap.org;
@@ -42,19 +45,19 @@ const nextConfig = {
             frame-ancestors 'none';
           `.replace(/\s{2,}/g, ' ').trim(),
 
-        },
-        {
-          key: "X-Content-Type-Options",
-          value: "nosniff",
-        },
-        {
-          key: "X-Frame-Options",
-          value: "DENY",
-        },
-      ],
-    },
-  ];
-}
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
+        ],
+      },
+    ];
+  }
 };
 
 
