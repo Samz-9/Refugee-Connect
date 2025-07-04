@@ -33,7 +33,7 @@ export default function Home() {
           <a href="mailto:rrandomm122@gmail.com" className="hover:font-semibold">Contact</a>
         </nav>
       </div>
-      <header className="flex items-center border glass-navbar border-[#3b5731] py-3 px-4 md:px-10 bg-[#c7f8b5] justify-between">
+      <header className="flex items-center border glass-navbar border-[#3b5731] py-5 md:py-3 px-4 md:px-10 bg-[#c7f8b5] justify-between">
         <div className="font-extrabold tracking-wide text-xl md:text-2xl uppercase text-[#2f4627]"> CLIMATE REFUGEE CONNECT</div>
         <ul className="hidden md:flex gap-8">
           <a href="/about"><li className="hover:cursor-pointer transition-all duration-300 ease-in-out hover:font-semibold hover:bg-green-100 px-6 py-3 rounded-full" >About</li></a>
@@ -50,34 +50,34 @@ export default function Home() {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_350px] max-w-[1400px] md:flex items-center px-2 pb-2 mb-4 justify-between">
         <div className="bg-[url('/BG.jpg')] hidden md:block bg-contain h-[88vh] w-[70%] bg-center bg-no-repeat"></div>
 
-        <main class="md:hidden glass-section rounded-3xl p-8 lg:p-12 shadow-xl border border-white border-opacity-20 relative overflow-hidden">
-          <div class="absolute top-[-50%] right-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle,rgba(76,175,80,0.1)_0%,transparent_70%)] animate-float"></div>
-          <h1 class="text-[#1b5e20] text-4xl lg:text-6xl font-extrabold mb-6 leading-tight relative z-10">Rebuilding Lives Beyond Climate Borders</h1>
-          <p class="text-[#2d5a2d] text-lg lg:text-xl mb-12 opacity-90 relative z-10">Helping climate refugees find safe countries for a fresh start through our innovative matching platform.</p>
+        <main className="md:hidden glass-section rounded-3xl p-8 lg:p-12 shadow-xl border border-white border-opacity-20 relative overflow-hidden">
+          <div className="absolute top-[-50%] right-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle,rgba(76,175,80,0.1)_0%,transparent_70%)] animate-float"></div>
+          <h1 className="text-[#1b5e20] text-4xl lg:text-6xl font-extrabold mb-6 leading-tight relative z-10">Rebuilding Lives Beyond Climate Borders</h1>
+          <p className="text-[#2d5a2d] text-lg lg:text-xl mb-12 opacity-90 relative z-10">Helping climate refugees find safe countries for a fresh start through our innovative matching platform.</p>
  
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 my-12">
-            <div class="glass-card p-8 rounded-2xl text-center shadow-lg border border-white border-opacity-30 transition-all duration-300 ease-in-out relative overflow-hidden hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-300/50">
-              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4caf50] to-[#66bb6a] transform -translate-x-full transition-transform duration-600 ease-in-out"></div>
-              <div class="text-5xl mb-6 text-[#4caf50]">👤</div>
-              <h3 class="text-xl font-bold text-[#1b5e20] mb-4">Step 1: Tell us about your situation</h3>
-              <p class="text-[#2d5a2d] opacity-90 leading-relaxed">Share your location, skills, needs, and circumstances. Our secure platform ensures your privacy while gathering essential information.</p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 my-12">
+            <div className="glass-card p-8 rounded-2xl text-center shadow-lg border border-white border-opacity-30 transition-all duration-300 ease-in-out relative overflow-hidden hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-300/50">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4caf50] to-[#66bb6a] transform -translate-x-full transition-transform duration-600 ease-in-out"></div>
+              <div className="text-5xl mb-6 text-[#4caf50]">👤</div>
+              <h3 className="text-xl font-bold text-[#1b5e20] mb-4">Step 1: Tell us about your situation</h3>
+              <p className="text-[#2d5a2d] opacity-90 leading-relaxed">Share your location, skills, needs, and circumstances. Our secure platform ensures your privacy while gathering essential information.</p>
             </div>
-            <div class="glass-card p-8 rounded-2xl text-center shadow-lg border border-white border-opacity-30 transition-all duration-300 ease-in-out relative overflow-hidden hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-300/50">
-              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4caf50] to-[#66bb6a] transform -translate-x-full transition-transform duration-600 ease-in-out"></div>
-              <div class="text-5xl mb-6 text-[#4caf50]">🤝</div>
-              <h3 class="text-xl font-bold text-[#1b5e20] mb-4">Step 2: We match you</h3>
-              <p class="text-[#2d5a2d] opacity-90 leading-relaxed">Our AI-powered system connects you to suitable destinations and opportunities based on your profile and preferences.</p>
+            <div className="glass-card p-8 rounded-2xl text-center shadow-lg border border-white border-opacity-30 transition-all duration-300 ease-in-out relative overflow-hidden hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-300/50">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4caf50] to-[#66bb6a] transform -translate-x-full transition-transform duration-600 ease-in-out"></div>
+              <div className="text-5xl mb-6 text-[#4caf50]">🤝</div>
+              <h3 className="text-xl font-bold text-[#1b5e20] mb-4">Step 2: We match you</h3>
+              <p className="text-[#2d5a2d] opacity-90 leading-relaxed">Our AI-powered system connects you to suitable destinations and opportunities based on your profile and preferences.</p>
             </div>
-            <div class="glass-card p-8 rounded-2xl text-center shadow-lg border border-white border-opacity-30 transition-all duration-300 ease-in-out relative overflow-hidden hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-300/50">
-              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4caf50] to-[#66bb6a] transform -translate-x-full transition-transform duration-600 ease-in-out"></div>
-              <div class="text-5xl mb-6 text-[#4caf50]">🌟</div>
-              <h3 class="text-xl font-bold text-[#1b5e20] mb-4">Start a new chapter</h3>
-              <p class="text-[#2d5a2d] opacity-90 leading-relaxed">Begin your journey in a welcoming, supportive environment with access to resources and community connections.</p>
+            <div className="glass-card p-8 rounded-2xl text-center shadow-lg border border-white border-opacity-30 transition-all duration-300 ease-in-out relative overflow-hidden hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-300/50">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4caf50] to-[#66bb6a] transform -translate-x-full transition-transform duration-600 ease-in-out"></div>
+              <div className="text-5xl mb-6 text-[#4caf50]">🌟</div>
+              <h3 className="text-xl font-bold text-[#1b5e20] mb-4">Start a new chapter</h3>
+              <p className="text-[#2d5a2d] opacity-90 leading-relaxed">Begin your journey in a welcoming, supportive environment with access to resources and community connections.</p>
             </div>
           </div>
 
-          <div class="text-center mt-12">
-            <a href="/login" class="btn-gradient btn-gradient-hover inline-block text-white px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 ease-in-out shadow-xl hover:-translate-y-1 hover:shadow-2xl relative overflow-hidden">Get Started Today</a>
+          <div className="text-center mt-12">
+            <a href="/login" className="btn-gradient btn-gradient-hover inline-block text-white px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 ease-in-out shadow-xl hover:-translate-y-1 hover:shadow-2xl relative overflow-hidden">Get Started Today</a>
           </div>
         </main>
 

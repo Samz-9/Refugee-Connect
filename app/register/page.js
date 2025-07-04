@@ -268,7 +268,7 @@ export default function Register() {
       )}
       <div className="mx-auto w-[85vw] bg-gray-100 rounded-2xl p-6 shadow-md my-14">
         <h2 className="text-2xl text-center font-semibold underline py-4">Create Your Profile</h2>
-        <div className="px-8 py-4 w-full grid grid-cols-3 gap-10">
+        <div className="px-8 py-4 w-full grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10">
           <input className="rounded-lg w-full px-1 py-2 text-lg border border-gray-400 indent-2" placeholder="Full Name" onChange={(e) => setProfile({ ...profile, name: e.target.value })} />
           <input className="rounded-lg px-1 py-2 w-full text-lg border border-gray-400 indent-2" placeholder="Age" onChange={(e) => setProfile({ ...profile, age: e.target.value })} />
           <select
@@ -327,7 +327,7 @@ export default function Register() {
             <option value="PhD / Doctorate">PhD / Doctorate</option>
           </select>
         </div>
-        <button disabled={isFormIncomplete} className={`block bg-gradient-to-r my-4 from-orange-500 to-indigo-500 text-white py-3 text-center w-[30%] text-lg mx-auto rounded-xl hover:font-semibold ${isFormIncomplete ? "opacity-50 cursor-not-allowed" : ""}`} onClick={() => {
+        <button disabled={isFormIncomplete} className={`block bg-gradient-to-r my-4 from-orange-500 to-indigo-500 text-white py-3 text-center w-full px-3 md:w-[30%] text-lg mx-auto rounded-xl hover:font-semibold ${isFormIncomplete ? "opacity-50 cursor-not-allowed" : ""}`} onClick={() => {
           handleSubmit(); router.push(`/dashboard/${encodedUsername}?id=${encodedUid}`); alert('Loading...');
         }}>Find Safe Country</button>
       </div>

@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState, useMemo } from "react";
+import { FaUserEdit } from 'react-icons/fa'; // or MdEdit, FiEdit
 import dynamic from 'next/dynamic';
 import { useRouter } from "next/navigation";
 const Select = dynamic(() => import("react-select"), { ssr: false });
@@ -162,6 +163,12 @@ export default function ClimateRefugeeApp({ params, searchParams }) {
         { value: "Writing and Editing", label: "Writing and Editing" }
     ], [])
 
+    const [sideOpen, setSideOpen] = useState(false)
+
+    const toggleedit = () => {
+        setSideOpen(!sideOpen);
+    }
+
     useEffect(() => {
         const validate = async () => {
             if (!username || !uid) {
@@ -237,105 +244,118 @@ export default function ClimateRefugeeApp({ params, searchParams }) {
 
     return (
         <div className="mx-auto font-sans ">
-    { isLoading && <div className="w-full h-full z-20 absolute top-0 left-0 flex items-center justify-center bg-white">
-        <div className="flex flex-col items-center">
-            <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4 animate-spin"></div>
-            <p className="text-lg font-semibold text-gray-700">Wait a minute !!</p>
-            <p className="text-lg font-semibold text-gray-700">Loading your dashboard...</p>
-        </div>
-    </div>}
-    <div className="text-xl m-2 rounded-xl px-9 py-4 flex justify-between text-white bg-gradient-to-r from-orange-500 to-indigo-500 font-bold text-center ">
-        <div>Profile Match With Safe Countries</div>
-        <div>
-            <span className="text-lg drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] text-black">Welcome,</span>
-            <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
-                {username && username[0].toUpperCase() + username.slice(1)}
-            </span>
-        </div>
-    </div>
-
-    <div className="mx-2 bg-gray-100 rounded-2xl h-[87vh] flex shadow-md px-5 pb-1 pt-4">
-        <div className="space-y-4 flex flex-col px-6 py-2 w-[25vw] ">
-            <h2 className="text-xl font-semibold">Edit Profile</h2>
-            <input className="rounded-lg w-full p-1 text-base border border-gray-400 indent-2" placeholder="Full Name" value={profile.name} onChange={(e) => setProfile({ ...profile, name: e.target.value })} />
-            <input className="rounded-lg p-1 w-full text-base border border-gray-400 indent-2" placeholder="Age" value={profile.age} onChange={(e) => setProfile({ ...profile, age: e.target.value })} />
-            <select
-                value={profile.gender}
-                onChange={(e) => setProfile({ ...profile, gender: e.target.value })}
-                className={`rounded-lg shadow-sm w-full p-1 border indent-1 border-gray-400 focus:ring-1 text-base focus:ring-black ${profile.gender === "" ? "text-gray-400" : "text-black"} bg-white`}
-            >
-                <option value="" disabled hidden>
-                    Gender
-                </option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-            <input className="rounded-lg p-1 w-full text-base border border-gray-400 indent-2" placeholder="Nationality" value={profile.nationality} onChange={(e) => setProfile({ ...profile, nationality: e.target.value })} />
-            <Select
-                isMulti
-                value={profile.language ? profile.language.map(lang => ({ value: lang, label: lang })) : []}
-                options={languageOptions}
-                onChange={(selected) =>
-                    setProfile((prev) => ({
-                        ...prev,
-                        language: selected.map((l) => l.value),
-                    }))
-                }
-
-                placeholder="Languages Known"
-                styles={customStyles}
-                className="w-full"
-                classNamePrefix="react-select"
-            />
-            <Select
-                isMulti
-                value={profile.skills ? profile.skills.map(lang => ({ value: lang, label: lang })) : []}
-                options={jobOptions}
-                onChange={(selected) =>
-                    setProfile((prev) => ({
-                        ...prev,
-                        skills: selected.map((l) => l.value),
-                    }))
-                }
-                placeholder="Skills / Occupation"
-                styles={customStyles}
-                className="w-full"
-                classNamePrefix="react-select"
-            />
-
-            <input className="rounded-lg p-1 w-full text-base border border-gray-400 indent-2" placeholder="Current Location/City" value={profile.location} onChange={(e) => setProfile({ ...profile, location: e.target.value })} />
-            <select
-                value={profile.education}
-                onChange={(e) => setProfile({ ...profile, education: e.target.value })}
-                className={`rounded-lg shadow-sm w-full p-1 border indent-1 border-gray-400 focus:ring-1 text-base focus:ring-black ${profile.education === "" ? "text-gray-400" : "text-black"} bg-white`}
-            >
-                <option value="" disabled hidden>
-                    Education Level
-                </option>
-                <option value="Below 10th">No formal education</option>
-                <option value="10th Pass">10th Pass</option>
-                <option value="12th Pass">12th Pass</option>
-                <option value="Undergraduate (UG)">Undergraduate (UG)</option>
-                <option value="Postgraduate (PG)">Postgraduate (PG)</option>
-                <option value="PhD / Doctorate">PhD / Doctorate</option>
-            </select>
-            {isModified && (<button className="bg-gradient-to-r from-orange-500 to-indigo-500 text-white py-2 w-full rounded-xl hover:font-semibold transition-transform duration-300 hover:animate-pulse-scale" onClick={handlesave}>Save Changes</button>)}
-        </div>
-
-
-        <div className="bg-white rounded-2xl mx-1 my-2 w-[25vw] shadow-md ">
-            <h2 className="text-xl pt-4 px-4 font-semibold">Nearby Safe Cities with Matching Jobs</h2>
-            {Loc && skll && (
-                <MuseJobs skills={skll} proplocation={Loc} />
+            {sideOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                    onClick={toggleedit}
+                ></div>
             )}
+            {isLoading && <div className="w-full h-full z-20 absolute top-0 left-0 flex items-center justify-center bg-white">
+                <div className="flex flex-col items-center">
+                    <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4 animate-spin"></div>
+                    <p className="text-lg font-semibold text-gray-700">Wait a minute !!</p>
+                    <p className="text-lg font-semibold text-gray-700">Loading your dashboard...</p>
+                </div>
+            </div>}
+            <div className="text-xl m-2 rounded-xl px-4 md:px-9 py-4 flex md:flex-row flex-col justify-between text-white bg-gradient-to-r from-orange-500 to-indigo-500 font-bold text-center ">
+                <div>Profile Match With Safe Countries</div>
+                <div className="hidden md:block">
+                    <span className="text-lg drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] text-black">Welcome,</span>
+                    <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
+                        {username && username[0].toUpperCase() + username.slice(1)}
+                    </span>
+                </div>
+                <div className="text-end mt-2 text-base md:hidden">
+                    <span className="drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] text-black">Welcome,</span>
+                    <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
+                        {username && username[0].toUpperCase() + username.slice(1)}
+                    </span>
+                    <FaUserEdit onClick={toggleedit} className="text-lg ml-2 inline text-gray-600 cursor-pointer" />
+                </div>
+            </div>
+
+            <div className="mx-2 bg-gray-100 rounded-2xl md:h-[87vh] flex flex-col-reverse md:flex-row shadow-md px-5 pb-1 pt-4"> 
+
+                <div className={`space-y-4 glass-section fixed top-0 my-10 md:mx-1 md:my-2 h-[81vh] justify-center md:static transform transition-transform rounded-2xl duration-300 md:transform-none ${sideOpen ? 'left-0' : '-left-full'
+          } flex z-40 md:z-[1] flex-col px-6 py-2 w-80 md:justify-start md:w-[25vw]`}>
+                    <h2 className="text-xl font-semibold">Edit Profile</h2>
+                    <input className="rounded-lg w-full p-1 text-base border border-gray-400 indent-2" placeholder="Full Name" value={profile.name} onChange={(e) => setProfile({ ...profile, name: e.target.value })} />
+                    <input className="rounded-lg p-1 w-full text-base border border-gray-400 indent-2" placeholder="Age" value={profile.age} onChange={(e) => setProfile({ ...profile, age: e.target.value })} />
+                    <select
+                        value={profile.gender}
+                        onChange={(e) => setProfile({ ...profile, gender: e.target.value })}
+                        className={`rounded-lg shadow-sm w-full p-1 border indent-1 border-gray-400 focus:ring-1 text-base focus:ring-black ${profile.gender === "" ? "text-gray-400" : "text-black"} bg-white`}
+                    >
+                        <option value="" disabled hidden>
+                            Gender
+                        </option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <input className="rounded-lg p-1 w-full text-base border border-gray-400 indent-2" placeholder="Nationality" value={profile.nationality} onChange={(e) => setProfile({ ...profile, nationality: e.target.value })} />
+                    <Select
+                        isMulti
+                        value={profile.language ? profile.language.map(lang => ({ value: lang, label: lang })) : []}
+                        options={languageOptions}
+                        onChange={(selected) =>
+                            setProfile((prev) => ({
+                                ...prev,
+                                language: selected.map((l) => l.value),
+                            }))
+                        }
+
+                        placeholder="Languages Known"
+                        styles={customStyles}
+                        className="w-full"
+                        classNamePrefix="react-select"
+                    />
+                    <Select
+                        isMulti
+                        value={profile.skills ? profile.skills.map(lang => ({ value: lang, label: lang })) : []}
+                        options={jobOptions}
+                        onChange={(selected) =>
+                            setProfile((prev) => ({
+                                ...prev,
+                                skills: selected.map((l) => l.value),
+                            }))
+                        }
+                        placeholder="Skills / Occupation"
+                        styles={customStyles}
+                        className="w-full"
+                        classNamePrefix="react-select"
+                    />
+
+                    <input className="rounded-lg p-1 w-full text-base border border-gray-400 indent-2" placeholder="Current Location/City" value={profile.location} onChange={(e) => setProfile({ ...profile, location: e.target.value })} />
+                    <select
+                        value={profile.education}
+                        onChange={(e) => setProfile({ ...profile, education: e.target.value })}
+                        className={`rounded-lg shadow-sm w-full p-1 border indent-1 border-gray-400 focus:ring-1 text-base focus:ring-black ${profile.education === "" ? "text-gray-400" : "text-black"} bg-white`}
+                    >
+                        <option value="" disabled hidden>
+                            Education Level
+                        </option>
+                        <option value="Below 10th">No formal education</option>
+                        <option value="10th Pass">10th Pass</option>
+                        <option value="12th Pass">12th Pass</option>
+                        <option value="Undergraduate (UG)">Undergraduate (UG)</option>
+                        <option value="Postgraduate (PG)">Postgraduate (PG)</option>
+                        <option value="PhD / Doctorate">PhD / Doctorate</option>
+                    </select>
+                    {isModified && (<button className="bg-gradient-to-r from-orange-500 to-indigo-500 text-white py-2 w-full rounded-xl hover:font-semibold transition-transform duration-300 hover:animate-pulse-scale" onClick={handlesave}>Save Changes</button>)}
+                </div>
+
+                <div className="bg-white rounded-2xl mx-1 my-2 w-full md:w-[25vw] shadow-md ">
+                    <h2 className="text-xl pt-4 px-4 font-semibold">Nearby Safe Cities with Matching Jobs</h2>
+                    {Loc && skll && (
+                        <MuseJobs skills={skll} proplocation={Loc} />
+                    )}
+                </div>
+
+                <div className="bg-white rounded-2xl mx-1 my-2 w-full md:w-[45vw] shadow-md px-4">
+                    <MapWithSearch location={Loc} className='w-full h-[50vh] md:h-[72vh] mb-1'></MapWithSearch>
+                </div>
+
+            </div>
         </div>
-
-
-        <div className="bg-white rounded-2xl mx-1 my-2 w-[45vw] shadow-md px-4">
-            <MapWithSearch location={Loc} className='w-full h-[72vh] mb-1'></MapWithSearch>
-        </div>
-
-    </div>
-</div>
     );
 }

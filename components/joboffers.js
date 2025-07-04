@@ -111,7 +111,7 @@ export default function MuseJobs({  skills, proplocation }) {
                 <div className="text-center absolute top-4 left-0 text-red-500 font-medium">No safe jobs found nearby based on your location and skills.</div>
             )}
 
-            <div className="flex flex-col h-[65vh] overflow-y-auto gap-2">
+            <div className="flex flex-col h-[55vh] md:h-[65vh] overflow-y-auto gap-2">
                 {jobs.map((entry, i) => (
                     <div key={i} className="bg-white p-1 w-full border-2 rounded-xl shadow space-y-3">
                         <h2 className="text-lg text-center font-semibold">{entry.city}, {entry.country}</h2>
